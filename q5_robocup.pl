@@ -2,8 +2,8 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
+%%%%% NAME: Shaghayegh Dehghanisanij
+%%%%% NAME: Theresa Killam
 %%%%% NAME:
 %
 % Add the required rules in the corresponding sections. 
@@ -24,3 +24,14 @@ pathClear(r4, net).    pathClear(r1, r5).    pathClear(r5, r6).
 
 %%%%% SECTION: robocup
 %%%%% Put your rules for canPass, canScore, and any helper predicates below
+
+
+canPass(R1, R2, M, [H,T]) :- R1 = H, R2 = T, robot(R1), robot(R2), pathClear(R1, R2), M>=1.
+canPass(R1, R2, M, [H,S|Rest]) :- robot(R1), robot(R2), robot(R3), pathClear(R1, R3), R1 = H, R3 = S, canPass(R3, R2, M - 1, [R3|Rest]).
+
+
+canScore(R,M, Path) :- robot(R),  hasBall(R), pathClear(R,net), M >= 1, Path = [R,net].
+canScore(R,M, Path) :- robot(R), robot(R1), hasBall(R1), pathClear(R,net), canPass(R1, R, M, Rest), M>1, addToEnd(Rest, Path).
+
+addToEnd([H],[H,net]).
+addToEnd([H|T], [H|Y]) :- addToEnd(T, Y). 
