@@ -2,8 +2,8 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
+%%%%% NAME: Shaghayegh Dehghanisanij
+%%%%% NAME: Theresa Killam
 %%%%% NAME:
 %
 % Add the required rules in the corresponding sections. 
@@ -57,3 +57,22 @@ testTree(2,
 
 %%%%% SECTION: preorder
 %%%%% Put your rules for preorder and any helper predicates below
+
+
+% Base case
+preorder(none, nil).
+
+
+preorder(tree3(Name, L, M, R), next(Name, List)) :-
+    preorder(L, LList),
+    preorder(M, MList),
+    preorder(R, RList),
+    append_lists(LList, MList, TempList),
+    append_lists(TempList, RList, List).
+
+
+
+
+append_lists(nil, List, List).
+append_lists(next(Head, Tail), List, next(Head, ResultTail)) :-
+    append_lists(Tail, List, ResultTail).
