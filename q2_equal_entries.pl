@@ -15,24 +15,16 @@
 %%%%% SECTION: equalEntries
 %%%%% Put your rules for equalEntries below
 
-% Base case : one same element is both lists
 equalEntries([X], [X], [true]).
+equalEntries([X], [Y], [false]) :- not (X = Y).
+equalEntries([H|Tail1], [H|Tail2], [true|Rest]) :- equalEntries(Tail1, Tail2, Rest).
+equalEntries([H1|Tail1], [H2|Tail2], [false|Rest]) :- not (H1 = H2), equalEntries(Tail1, Tail2, Rest).
 
-% one different element
-equalEntries([X], [Y], [false]) :- not(X = Y).
+/*
+% equalEntries([1], [1], [true]).  --> works
+% equalEntries([1], [2], [true]).  --> works
+% equalEntries([1], [2], [false]).  --> works
 
-% check the lengths, same heads, check the tails
-equalEntries([H|Tail1], [H|Tail2], [true|Rest]) :-
-    lengthOfList(Tail1 , Len1),
-    lengthOfList(Tail2 , Len2),
-    Len1 = Len2,
-    equalEntries(Tail1, Tail2, Rest).
-
-% check the lengths, different heads, check the tails
-equalEntries([H1|Tail1], [H2|Tail2], [false|Rest]) :-
-    not(H1 = H2),
-    lengthOfList(Tail1 , Len1),
-    lengthOfList(Tail2 , Len2),
-    Len1 = Len2,
-    equalEntries(Tail1, Tail2, Rest).
-
+% equalEntries([a,b,c], [a,b,c], X). --> works
+% equalEntries([a, b, [c], d, [e, f, g]], [1, b, c, d, [e, f, g]], [false, true, false, true, true]) --> works.
+*/
