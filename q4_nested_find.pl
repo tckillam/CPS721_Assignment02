@@ -15,26 +15,36 @@
 %%%%% SECTION: nestedLists
 %%%%% Put your rules for nestedFindDepth, nestedFindIndex, and any helper predicates below
 
+% Base case: Item is head
+nestedFindDepth([Head|_], Item, 0) :-
+    Item = Head.
 
-% if the head is the item, the depth should be 0
-nestedFindDepth([H|Tail], Item, Depth) :- H = Item, Depth = 0. 
+% Case 2: Head is a list
+nestedFindDepth([Head|Tail], Item, Depth) :-
+    is_list(Head),
+    nestedFindDepth(Head, Item, DepthInSubList),  % check inside head
+    Depth is DepthInSubList + 1.
 
-% if the head is a list, make the depth 1 and use a helper predicate
-nestedFindDepth([H|Tail], Item, Depth) :- is_list(H), countDepth(H, Item, 1, Depth).
+% Case 3: Item in not head, so we go to the tail
+nestedFindDepth([_|Tail], Item, Depth) :-
+    nestedFindDepth(Tail, Item, Depth).
 
-% if the head is not a list and not the item, then use recursion and put the tail in
-nestedFindDepth([H|Tail], Item, Depth) :- not (is_list(H)), not (H = Item), nestedFindDepth(Tail, Item, Depth).
+% Case 4: Item found but not in list
+nestedFindDepth(Item, Item, 0).
 
 
+% Base case: Item is head
+nestedFindIndex([Head|_], Item, 0, 0) :-
+    Head = Item.
 
-/*** THE HELPER PREDICATE ***/
-% if the head is the item, then depth is equal to the layer
-countDepth([H|Tail], Item, Layer, Depth) :- H = Item, Depth = Layer.
+% Case 2: Head is a list
+nestedFindIndex([Head|_], Item, Depth, 0) :-
+    is_list(Head),
+    nestedFindDepth(Head, Item, D),  % Use nestedFindDepth to find the depth within the head.
+    Depth is D + 1.
 
-% if the head is a list, use recursion and increase the layer by 1
-countDepth([H|Tail], Item, Layer, Depth) :- is_list(H), countDepth(H, Item, Layer + 1, Depth).
-
-% if the head is not a list or the item, put it back into nestedFindDepth
-countDepth([H|Tail], Item, Layer, Depth) :- not (is_list(H)), not (H = Item), nestedFindDepth(Tail, Item, Depth). 
-
+% Case 3: Item in not head, so we go to the tail
+nestedFindIndex([_|Tail], Item, Depth, Index) :-
+    nestedFindIndex(Tail, Item, Depth, NewIndex),
+    Index is NewIndex + 1.
 
