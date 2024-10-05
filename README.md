@@ -7,6 +7,10 @@ QUESTION 2:
 - equalEntries([a,b,c], [a,b,d], X).
 - equalEntries([a, b, c, d, e], [1, 2, c, 4, 5], [false, false, true, false, false]).
 - equalEntries([a, b, [c], d, [e, f, g]], [1, b, c, d], X).
+- equalEntries([1], [1 , 2], X).
+
+
+
 
 
 QUESTION 6:
