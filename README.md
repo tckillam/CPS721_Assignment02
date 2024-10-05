@@ -1,3 +1,11 @@
-hey, this is my first time making my own github project so if there are any mistakes, let me knowww.
 
-Question 2: it passed all the tests from the document plus the ones in the comments but I think before we submit it, we should run a few more tests
+
+QUESTION 6:
+ - listShift(next(7, next(1, next(5, next(0, next(9, nil))))), 4, X).
+ - listShift((nil) , 4 , X).
+ - listShift(nil , 1 , X).
+ - listShift((2, nil) , 0 , X).
+ - listShift(next(2, nil) , 1 , X).
+ - listShift(next(nil, nil) , 10 , X).
+
+
