@@ -22,3 +22,39 @@ QUESTION 6:
  - listShift(next(nil, nil) , 10 , X).
 
 
+QUESTION 7:
+- preorder(none, X).
+- Tree = tree3(a, none, none, none), preorder(Tree, X).
+- Tree = tree3(a, 
+             tree3(b, none, none, none), 
+             tree3(c, none, none, none), 
+             tree3(d, none, none, none)),
+preorder(Tree, X).
+- Tree = tree3(a, 
+             tree3(b, 
+                   tree3(e, none, none, none), 
+                   tree3(f, none, none, none), 
+                   none), 
+             tree3(c, none, none, none), 
+             tree3(d, none, none, none)),
+preorder(Tree, X).
+![image](https://github.com/user-attachments/assets/5578ec9b-fe0c-4ce7-96dd-b21be309997f)
+
+- Tree = tree3(16, 
+             tree3(10, 
+                   tree3(3, none, none, none),  
+                   none,
+                   tree3(6, none, none, none)), 
+             tree3(2,
+                   tree3(15, 
+                         tree3(20, none, none, none), none, none), 
+                   tree3(1, 
+                         none, none, tree3(30, none, none, none)),  
+                   tree3(8, none, none, none)), 
+             tree3(12, 
+                   none, none, tree3(33, none, none, none))),
+preorder(Tree, X).
+![image](https://github.com/user-attachments/assets/7fa5ecf0-162f-4568-a6b1-f8f35e8d1737)
+
+
+
