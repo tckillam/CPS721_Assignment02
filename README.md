@@ -38,7 +38,12 @@ preorder(Tree, X).
              tree3(c, none, none, none), 
              tree3(d, none, none, none)),
 preorder(Tree, X).
+
+
+Tree = tree3(a,  tree3(b, tree3(e, none, none, none), tree3(f, none, none, none), none), tree3(c, none, none, none), tree3(d, tree3(g, none, none, tree3(h, none, none, none)), none, none )), preorder(Tree, X). -->
+X = X = next(a, next(b, next(e, next(f, next(c, next(d, next(g, next(h, nil)))))))).
 ![image](https://github.com/user-attachments/assets/5578ec9b-fe0c-4ce7-96dd-b21be309997f)
+
 
 - Tree = tree3(16, 
              tree3(10, 
