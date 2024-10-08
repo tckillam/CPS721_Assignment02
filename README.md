@@ -38,7 +38,6 @@ QUESTION 3:
   + 5 + 6 - (-1) + (-2) - 7 + 8 - 9 = 2.
 
 QUESTION 4:
-
 - nestedFindDepth([[a, b], [[c]], d], [a, b], D).
 - D = 0
 - nestedFindDepth([[a, b], [[c]], d], c, 2).
@@ -50,6 +49,22 @@ QUESTION 4:
 - nestedFindDepth([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], X, 1).
 - a and b and e and f anf [c,g] and [[i]]
 
+
+
+QUESTION 5:
+- nestedFindIndex(a, E, X, Y)
+- no
+- nestedFindIndex([[a, b], [[c]], d], b, 1, 0).
+- yes
+- nestedFindIndex([[a, b], [[c]], d], c, D, Y).
+- Yes with D = 2 and Y = 1
+- nestedFindIndex([[a, b], [[c]], d], E, D, 2).
+- Yes with E = d and D = 0
+- nestedFindIndex([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], Item , Depth , Index).
+- nestedFindIndex([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], Item , 2 , Index).
+- Index = c Item = c ? ;
+- Index = 1 Item = g ? ;
+- Index = 4 Item = [i] ? ;
 
 
 QUESTION 6:
