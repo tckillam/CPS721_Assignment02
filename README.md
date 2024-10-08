@@ -52,7 +52,7 @@ QUESTION 4:
 
 
 QUESTION 5:
-- nestedFindIndex(a, E, X, Y)
+- nestedFindIndex(a, E, X, Y).
 - no
 - nestedFindIndex([[a, b], [[c]], d], b, 1, 0).
 - yes
