@@ -65,6 +65,17 @@ QUESTION 4:
 
 QUESTION 5:
 
+- canScore(r3, 1, [r3, net]).
+- yes
+- canPass(r3, r1, 1, [r3, r1]).
+- yes
+- canScore(r1, 2, [r3, r1, net]).
+- yes
+- canScore(r1, 3, [r3, r1, net]).
+- yes
+- canScore(R, 3, Path).
+- canPass(R1, R2, 3, Path).
+- 
 
 
 QUESTION 6:
