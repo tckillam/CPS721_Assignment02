@@ -1,15 +1,52 @@
 QUESTION 2:
 - equalEntries([1], [1], [true]).
-- equalEntries([1], [2], [true]). 
-- equalEntries([1], [2], [false]). 
+- -> yes
+- equalEntries([1], [2], [true]).
+- -> no
+- equalEntries([1], [2], [false]).
+- -> yes
 - equalEntries([a,b,c], [a,b,c], X).
+- -> yes
 - equalEntries([a, b, [c], d, [e, f, g]], [1, b, c, d, [e, f, g]], [false, true, false, true, true]).
+- -> yes
 - equalEntries([a,b,c], [a,b,d], X).
+- -> [true,true,false]
 - equalEntries([a, b, c, d, e], [1, 2, c, 4, 5], [false, false, true, false, false]).
+-  -> yes
 - equalEntries([a, b, [c], d, [e, f, g]], [1, b, c, d], X).
+-  -> no
 - equalEntries([1], [1 , 2], X).
+-  -> no
 
+QUESTION 3:
 
+- alternatePlusMinus([1], 1).
+- --> yes
+- alternatePlusMinus([1], X).
+- --> works: X = 1
+- alternatePlusMinus([1,2], X).
+-  --> works: X = 3
+- alternatePlusMinus([1, 2, 3], 0).
+-  --> works
+- alternatePlusMinus([1, 2, -3], X).
+-  --> works X = 6
+- alternatePlusMinus([1, 2, 3, 4], X).
+-  --> works X = 4
+- alternatePlusMinus([1, 2, 3, 4, 5], X). 1 + 2 -3 + 4 - 5
+-  --> works X = -1
+- alternatePlusMinus([5,  6,   -1,    -2,   7,  8,  9], Z).
+  + 5 + 6 - (-1) + (-2) - 7 + 8 - 9 = 2.
+
+QUESTION 4:
+
+- nestedFindDepth([[a, b], [[c]], d], [a, b], D).
+- D = 0
+- nestedFindDepth([[a, b], [[c]], d], c, 2).
+- yes
+- nestedFindDepth([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], X, 2).
+- c and g
+- nestedFindDepth([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], X, 0).
+- d and h and j
 
 
 
