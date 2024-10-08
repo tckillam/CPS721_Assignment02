@@ -16,7 +16,7 @@
 %%%%% Put your rules for equalEntries below
 
 equalEntries([X], [X], [true]).
-equalEntries([X], [Y], [false]) :- not(X = Y).
+equalEntries([X], [Y], [false]) :- not X=Y..
 equalEntries([H|Tail1], [H|Tail2], [true|Rest]) :- equalEntries(Tail1, Tail2, Rest).
-equalEntries([H1|Tail1], [H2|Tail2], [false|Rest]) :- not(H1 = H2), equalEntries(Tail1, Tail2, Rest).
+equalEntries([H1|Tail1], [H2|Tail2], [false|Rest]) :- not H1=H2, equalEntries(Tail1, Tail2, Rest).
 
