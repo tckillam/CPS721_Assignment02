@@ -19,21 +19,21 @@
 nestedFindDepth(Item, Item, 0) :-
     not(is_list(Item)).
 
-% Case 1: The item is found in the head of the list
+% Case 1: head is not a list
 nestedFindDepth([Head|_], Item, 0) :-
     Item = Head.
 
-% Case 2: Search in the head, which is a list, incrementing depth
+% Case 2: head is a list
 nestedFindDepth([Head|_], Item, Depth) :-
     is_list(Head),
     nestedFindDepth(Head, Item, SubDepth),
     Depth is SubDepth + 1.
 
-% Case 3: Search in the tail if not found in the head
+% Case 3: not in head, then go to tail
 nestedFindDepth([_|Tail], Item, Depth) :-
     nestedFindDepth(Tail, Item, Depth).
 
-% Case 4: Item itself is not a list and it matches directly
+% Case 4: Item is not a list but matches directly
 nestedFindDepth(Item, Item, 0) :-
     not(is_list(Item)).
 
