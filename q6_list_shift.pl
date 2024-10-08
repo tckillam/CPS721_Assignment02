@@ -16,12 +16,12 @@
 % Base case: NO SHIFT
 listShift(List, 0, List).
 
-% If SHIFT > LENGTH
+% Case 2: If SHIFT > LENGTH
 listShift(List, V, List) :-
     lengthOfList(List, Length),
     V >= Length.
 
-% Recursive case
+% Case 3: 0 < V < Length
 listShift(next(Head, Tail), V, Result) :-
     V > 0,
     lengthOfList(next(Head, Tail), Length),
@@ -29,13 +29,20 @@ listShift(next(Head, Tail), V, Result) :-
     extractFirstV(next(Head, Tail), V, Extracted, Remaining),
     appendAtEnd(Remaining, Extracted, Result).
 
+% Base case: NO extract, List is empty, remaining unchanged
 extractFirstV(List, 0, nil, List).
+
+% Extract V elements , keep goign till V is zero
 extractFirstV(next(Head, Tail), V, next(Head, ExtractedTail), Remaining) :-
     V > 0,
     V1 is V - 1,
     extractFirstV(Tail, V1, ExtractedTail, Remaining).
 
+
+% Base case: Append nil
 appendAtEnd(nil, List, List).
+
+% Append to end of list
 appendAtEnd(next(Head, Tail), List, next(Head, ResultTail)) :-
     appendAtEnd(Tail, List, ResultTail).
 
