@@ -25,13 +25,20 @@ pathClear(r4, net).    pathClear(r1, r5).    pathClear(r5, r6).
 %%%%% SECTION: robocup
 %%%%% Put your rules for canPass, canScore, and any helper predicates below
 
-
+% there is a path clear between R1 and R2
 canPass(R1, R2, M, [H,T]) :- R1 = H, R2 = T, robot(R1), robot(R2), pathClear(R1, R2), M>=1.
+
+% if there is no path clear between R1 and R2, find a path clear between R1 and some R3 and then see if there is a path between R2 and R3
 canPass(R1, R2, M, [H,S|Rest]) :- robot(R1), robot(R2), robot(R3), pathClear(R1, R3), R1 = H, R3 = S, canPass(R3, R2, M - 1, [R3|Rest]).
 
 
+% R has the ball and there is a path clear between R and the net
 canScore(R,M, Path) :- robot(R),  hasBall(R), pathClear(R,net), M >= 1, Path = [R,net].
+
+% robot R1 has the ball and can pass to R with a clear path between them and R can score on net
 canScore(R,M, Path) :- robot(R), robot(R1), hasBall(R1), pathClear(R,net), canPass(R1, R, M, Rest), M>1, addToEnd(Rest, Path).
 
+
+% checks to see if a robot has a clear path between themselves and the net
 addToEnd([H],[H,net]).
 addToEnd([H|T], [H|Y]) :- addToEnd(T, Y). 
