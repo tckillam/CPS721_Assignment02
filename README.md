@@ -45,9 +45,9 @@ QUESTION 4:
 - nestedFindDepth([[a, b], [[c]], d], b, D).
     Yes with X = 1
 - nestedFindDepth([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], X, 2).
-- c and g and [i]
+- X=c and X=g and X=[i]
 - nestedFindDepth([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], X, 1).
-- a and b and e and f anf [c,g] and [[i]]
+- X=a and X=b and X=e and X=f anf X=[c,g] and X=[[i]]
 
 
 
