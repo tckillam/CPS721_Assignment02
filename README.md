@@ -48,10 +48,6 @@ QUESTION 4:
 - X=c and X=g and X=[i]
 - nestedFindDepth([[a, b , e , f], [[c , g]], d , h ,[[[i]]] , j ], X, 1).
 - X=a and X=b and X=e and X=f anf X=[c,g] and X=[[i]]
-
-
-
-QUESTION 5:
 - nestedFindIndex(a, E, X, Y).
 - no
 - nestedFindIndex([[a, b], [[c]], d], b, 1, 0).
@@ -65,6 +61,10 @@ QUESTION 5:
 - Index = c Item = c ? ;
 - Index = 1 Item = g ? ;
 - Index = 4 Item = [i] ? ;
+
+
+QUESTION 5:
+
 
 
 QUESTION 6:
